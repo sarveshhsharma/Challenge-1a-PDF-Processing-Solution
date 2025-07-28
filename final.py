@@ -3,6 +3,7 @@ import pdfplumber
 from collections import Counter,defaultdict
 import re
 import json
+import os
 
 #This code filters headings based on font size and headings have same font size as that of paragraph based on
 
@@ -15,6 +16,7 @@ import json
 #ignores tables
 
 # Most frequent element
+print(f"Processing Started")
 
 def most_frequent(numbers):
     numbers = [n for n in numbers if n is not None]
@@ -234,7 +236,7 @@ def get_fonts_and_sizes(pdf_path):
     return threshold
 
 # === Example Usage ===
-pdf_path = "./pdf/file04.pdf"
+pdf_path = "./pdf/file05.pdf"
 threshold = get_fonts_and_sizes(pdf_path)
 results, global_threshold, most_common_font_size, header_lines_greater_than_threshold = solve(pdf_path, threshold)
 
@@ -384,5 +386,14 @@ output = {
     "outline": outline
 }
 
-# Print as JSON
-print(json.dumps(output, indent=4, ensure_ascii=False))
+# Create the output directory if it doesn't exist
+os.makedirs("output", exist_ok=True)
+
+# Define the output file path
+output_path = os.path.join("output", "semantic_output.json")
+
+# Write JSON to file
+with open(output_path, "w", encoding="utf-8") as f:
+    json.dump(output, f, indent=4, ensure_ascii=False)
+
+print(f"Processing Completed")
