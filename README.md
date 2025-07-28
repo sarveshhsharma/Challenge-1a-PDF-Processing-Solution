@@ -4,7 +4,7 @@ This project extracts structured headings from PDF documents using visual and te
 
 ---
 
-## 🚀 Features
+## Features
 
 - Extracts **title** and **headings** (H1, H2, ...) from PDFs.
 - Detects **bold**, **italic**, and **large-font** styled lines.
@@ -14,7 +14,7 @@ This project extracts structured headings from PDF documents using visual and te
 
 ---
 
-## 🛠️ Libraries Used
+## Libraries Used
 
 - [PyMuPDF (`fitz`)]
 - [pdfplumber]
