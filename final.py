@@ -353,7 +353,6 @@ other_sizes = sorted({r["font_size"] for r in other_pages}, reverse=True)
 size_to_level = {size: f"H{idx + 1}" for idx, size in enumerate(other_sizes)}
 
 # Print result in required format
-print("[")
 first = True
 
 title = page1_h1['text'].replace('\n', ' ').strip() if page1_h1 else ""
